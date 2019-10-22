@@ -15,9 +15,9 @@ Goods.all = [];
 
 Goods.container = document.getElementById('goods-container');
 
-Goods.leftImag = document.getElementById('left-goods-imag');
-Goods.centerImag = document.getElementById('center-goods-imag')
-Goods.rightImag = document.getElementById('right-goods-imag');
+Goods.leftImg = document.getElementById('left-goods-img');
+Goods.centerImg = document.getElementById('center-goods-img')
+Goods.rightImg = document.getElementById('right-goods-img');
 
 Goods.leftTitle = document.getElementById('left-goods-title');
 Goods.centerTitle = document.getElementById('center -goods-title')
@@ -26,6 +26,8 @@ Goods.rightTitle = document.getElementById('right-goods-title');
 
 Goods.leftObject = null;
 Goods.rightObject = null;
+Goods.centerObject = null;
+
 
 new Goods('Bag', 'img/bag.jpg');
 new Goods('Banana', 'img/banana.jpg');
@@ -78,18 +80,18 @@ function renderNewGoods() {
   Goods.centerObject.shownCtr++;
   Goods.rightObject.shownCtr++;
 
-  var leftGoodsImagElement = Goods.leftImag;
-  var centerGoodsImagElement = Goods.centerImag;
-  var rightGoodsImagElement = Goods.rightImag;
+  var leftGoodsImgElement = Goods.leftImg;
+  var centerGoodsImgElement = Goods.centerImg;
+  var rightGoodsImgElement = Goods.rightImg;
 
-  leftGoodsImagElement.setAttribute('src', Goods.leftObject.src);
-  leftGoodsImagElement.setAttribute('alt', Goods.leftObject.title);
+  leftGoodsImgElement.setAttribute('src', Goods.leftObject.src);
+  leftGoodsImgElement.setAttribute('alt', Goods.leftObject.title);
 
-  centerGoodsImagElement.setAttribute('src', Goods.centerObject.src);
-  centerGoodsImagElement.setAttribute('alt', Goods.centerObject.title);
+  centerGoodsImgElement.setAttribute('src', Goods.centerObject.src);
+  centerGoodsImgElement.setAttribute('alt', Goods.centerObject.title);
 
-  rightGoodsImagElement.setAttribute('src', Goods.rightObject.src);
-  rightGoodsImagElement.setAttribute('alt', Goods.rightObject.title);
+  rightGoodsImgElement.setAttribute('src', Goods.rightObject.src);
+  rightGoodsImgElement.setAttribute('alt', Goods.rightObject.title);
 
   Goods.leftTitle.textContent = Goods.leftObject.title;
   Goods.centerTitle.textContent = Goods.centerObject.title;
@@ -114,7 +116,7 @@ function updateTotals() {
   tableBody.innerHTML = '';
 
   for (var i = 0; i < Goods.all.length; i++) {
-    var thing = Goods.all[i];
+    var goods = Goods.all[i];
     var row = addElement('tr', tableBody);
     addElement('td', row, goods.title);
     addElement('td', row, '' + goods.clickCtr);
@@ -136,11 +138,11 @@ function clickHandler(event) {
   var clickedId = event.target.id;
   var GoodsClicked;
 
-  if(clickedId === 'left-goods-imag') {
+  if(clickedId === 'left-goods-img') {
     GoodsClicked = Goods.leftObject;
-  } else if(clickedId === 'center-goods-imag') {
+  } else if(clickedId === 'center-goods-img') {
     GoodsClicked = Goods.centerObject;
-  } else if (clickedId === 'right-goods-imag') {
+  } else if (clickedId === 'right-goods-img') {
     GoodsClicked = Goods.rightObject;
   } else {
     alert('Please chose one of the THREE goods that show at the screen')
