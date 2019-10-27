@@ -210,4 +210,4 @@ function rendermallitems() {
 ///////////////////// step 14
 Product.container.addEventListener('click', clickHandler);
 getProducts();
-renderNewProduct();
+
